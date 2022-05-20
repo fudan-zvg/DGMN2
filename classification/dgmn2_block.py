@@ -3,7 +3,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 from timm.models.layers import DropPath
 
-from .dcn import DeformUnfold
+from dcn import DeformUnfold
 
 
 class Mlp(nn.Module):

@@ -9,16 +9,16 @@ Here, we take [MMDetection](https://github.com/open-mmlab/mmdetection) as an exa
 
 #### COCO validation set
 
-| Method           |   Backbone   | Lr schd | box AP | mask AP |
-|------------------|:------------:|:-------:|:------:|:-------:|
-| RetinaNet        | DGMN2-Tiny   |   1x    |  39.7  |    -    |
-| RetinaNet        | DGMN2-Small  |   1x    |  42.5  |    -    |
-| RetinaNet        | DGMN2-Medium |   1x    |  43.7  |    -    |
-| RetinaNet        | DGMN2-Large  |   1x    |  44.7  |    -    |
-| Mask R-CNN       | DGMN2-Tiny   |   1x    |  40.2  |  37.2   |
-| Mask R-CNN       | DGMN2-Small  |   1x    |  43.4  |  39.7   |
-| Mask R-CNN       | DGMN2-Medium |   1x    |  44.4  |  40.2   |
-| Mask R-CNN       | DGMN2-Large  |   1x    |  46.2  |  41.6   |
+| Method           |   Backbone   | Lr schd | box AP | mask AP | Download |
+|------------------|:------------:|:-------:|:------:|:-------:|:--------:|
+| RetinaNet        | DGMN2-Tiny   |   1x    |  39.7  |    -    | [model](https://drive.google.com/file/d/14gjw75Cz8iytUFDQP9ioIfiMni6e-xRl/view?usp=sharing) |
+| RetinaNet        | DGMN2-Small  |   1x    |  42.5  |    -    |          |
+| RetinaNet        | DGMN2-Medium |   1x    |  43.7  |    -    |          |
+| RetinaNet        | DGMN2-Large  |   1x    |  44.7  |    -    |          |
+| Mask R-CNN       | DGMN2-Tiny   |   1x    |  40.2  |  37.2   | [model](https://drive.google.com/file/d/17vGTzN1dazQ1Euu5mpBMvEro5HafAedT/view?usp=sharing) |
+| Mask R-CNN       | DGMN2-Small  |   1x    |  43.4  |  39.7   |          |
+| Mask R-CNN       | DGMN2-Medium |   1x    |  44.4  |  40.2   |          |
+| Mask R-CNN       | DGMN2-Large  |   1x    |  46.2  |  41.6   |          |
 
 
 ## Getting Started
@@ -31,7 +31,7 @@ git clone https://github.com/fudan-zvg/DGMN2
 
 ### Installation
 
-a. Install MMDetection following the [official instructions](https://github.com/open-mmlab/mmdetection). Here we use MMDetection 2.13.0.
+a. Install MMDetection following the [official instructions](https://github.com/open-mmlab/mmdetection). Here we use MMDetection 2.12.0.
 
 b. Install [PyTorch Image Models](https://github.com/rwightman/pytorch-image-models). Here we use PyTorch Image Models 0.4.5.
 ```
