@@ -46,7 +46,7 @@ b. Install [PyTorch Image Models](https://github.com/rwightman/pytorch-image-mod
 pip install timm==0.4.5
 ```
 
-c. Build the extension
+c. Build the extension.
 ```
 cd dcn
 python setup.py build_ext --inplace
@@ -57,7 +57,7 @@ python setup.py build_ext --inplace
 
 First, prepare Cityscapes dataset according to the guidelines in [MMSegmentation](https://github.com/open-mmlab/mmsegmentation).
 
-Then, download the [weights](https://github.com/fudan-zvg/DGMN2) pretrained on ImageNet, and put them in a folder `pretrained/`
+Then, download the [weights](https://github.com/fudan-zvg/DGMN2) pretrained on ImageNet, and put them in a folder `pretrained/`.
 
 
 ### Training
