@@ -9,16 +9,16 @@ Here, we take [MMDetection](https://github.com/open-mmlab/mmdetection) as an exa
 
 #### COCO validation set
 
-| Method           |   Backbone   | Lr schd | box AP | mask AP | Config | Download |
-|------------------|:------------:|:-------:|:------:|:-------:|:------:|:--------:|
-| RetinaNet        | DGMN2-Tiny   |   1x    |  39.7  |    -    | [config](configs/retinanet_dgmn2_tiny_fpn_8x2_1x_coco.py) | [model](https://drive.google.com/file/d/14gjw75Cz8iytUFDQP9ioIfiMni6e-xRl/view?usp=sharing) |
-| RetinaNet        | DGMN2-Small  |   1x    |  42.5  |    -    | [config](configs/retinanet_dgmn2_small_fpn_8x2_1x_coco.py) | [model](https://drive.google.com/file/d/1JIIuf7iNA9-tJoUefUNc1O1laJSW30Hx/view?usp=sharing) |
-| RetinaNet        | DGMN2-Medium |   1x    |  43.7  |    -    | [config](configs/retinanet_dgmn2_medium_fpn_8x2_1x_coco.py) | [model](https://drive.google.com/file/d/1WU4Kv1Z0Q4b3VMIcJPi7LSmUSYqlywWU/view?usp=sharing) |
-| RetinaNet        | DGMN2-Large  |   1x    |  44.7  |    -    | [config](configs/retinanet_dgmn2_large_fpn_8x2_1x_coco.py) | [model](https://drive.google.com/file/d/1kws1Q6Ccwipaimour9F67EAg2bMzXlAj/view?usp=sharing) |
-| Mask R-CNN       | DGMN2-Tiny   |   1x    |  40.1  |  37.2   | [config](configs/mask_rcnn_dgmn2_tiny_fpn_8x2_1x_coco.py) | [model](https://drive.google.com/file/d/17vGTzN1dazQ1Euu5mpBMvEro5HafAedT/view?usp=sharing) |
-| Mask R-CNN       | DGMN2-Small  |   1x    |  43.4  |  39.7   | [config](configs/mask_rcnn_dgmn2_small_fpn_8x2_1x_coco.py) | [model](https://drive.google.com/file/d/1g1lp7kUIM5gvxROfTAvI2EVjpPL-HW6r/view?usp=sharing) |
-| Mask R-CNN       | DGMN2-Medium |   1x    |  44.4  |  40.2   | [config](configs/mask_rcnn_dgmn2_medium_fpn_8x2_1x_coco.py) | [model](https://drive.google.com/file/d/1MO0BLtIrRohAW7BPEnr5G63mCBDA4Yey/view?usp=sharing) |
-| Mask R-CNN       | DGMN2-Large  |   1x    |  46.2  |  41.6   | [config](configs/mask_rcnn_dgmn2_large_fpn_8x2_1x_coco.py) | [model](https://drive.google.com/file/d/1DFkSQmfHI9z6IKag21BzRb7LhWvHotXm/view?usp=sharing) |
+|   Method   |   Backbone   | Lr schd | box AP | mask AP | Config | Download |
+|:-----------|:-------------|:-------:|:------:|:-------:|:------:|:--------:|
+| RetinaNet  | DGMN2-Tiny   |   1x    |  39.7  |    -    | [config](configs/retinanet_dgmn2_tiny_fpn_8x2_1x_coco.py) | [model](https://drive.google.com/file/d/14gjw75Cz8iytUFDQP9ioIfiMni6e-xRl/view?usp=sharing) |
+| RetinaNet  | DGMN2-Small  |   1x    |  42.5  |    -    | [config](configs/retinanet_dgmn2_small_fpn_8x2_1x_coco.py) | [model](https://drive.google.com/file/d/1JIIuf7iNA9-tJoUefUNc1O1laJSW30Hx/view?usp=sharing) |
+| RetinaNet  | DGMN2-Medium |   1x    |  43.7  |    -    | [config](configs/retinanet_dgmn2_medium_fpn_8x2_1x_coco.py) | [model](https://drive.google.com/file/d/1WU4Kv1Z0Q4b3VMIcJPi7LSmUSYqlywWU/view?usp=sharing) |
+| RetinaNet  | DGMN2-Large  |   1x    |  44.7  |    -    | [config](configs/retinanet_dgmn2_large_fpn_8x2_1x_coco.py) | [model](https://drive.google.com/file/d/1kws1Q6Ccwipaimour9F67EAg2bMzXlAj/view?usp=sharing) |
+| Mask R-CNN | DGMN2-Tiny   |   1x    |  40.1  |  37.2   | [config](configs/mask_rcnn_dgmn2_tiny_fpn_8x2_1x_coco.py) | [model](https://drive.google.com/file/d/17vGTzN1dazQ1Euu5mpBMvEro5HafAedT/view?usp=sharing) |
+| Mask R-CNN | DGMN2-Small  |   1x    |  43.4  |  39.7   | [config](configs/mask_rcnn_dgmn2_small_fpn_8x2_1x_coco.py) | [model](https://drive.google.com/file/d/1g1lp7kUIM5gvxROfTAvI2EVjpPL-HW6r/view?usp=sharing) |
+| Mask R-CNN | DGMN2-Medium |   1x    |  44.4  |  40.2   | [config](configs/mask_rcnn_dgmn2_medium_fpn_8x2_1x_coco.py) | [model](https://drive.google.com/file/d/1MO0BLtIrRohAW7BPEnr5G63mCBDA4Yey/view?usp=sharing) |
+| Mask R-CNN | DGMN2-Large  |   1x    |  46.2  |  41.6   | [config](configs/mask_rcnn_dgmn2_large_fpn_8x2_1x_coco.py) | [model](https://drive.google.com/file/d/1DFkSQmfHI9z6IKag21BzRb7LhWvHotXm/view?usp=sharing) |
 
 
 ## Getting Started

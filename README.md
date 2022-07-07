@@ -8,8 +8,8 @@ This repository contains the implementation of [Dynamic Graph Message Passing Ne
 
 #### ImageNet-1K
 
-| Method       | Params (M) | FLOPs (G) | Top1 Acc (%) |
-|--------------|:----------:|:---------:|:------------:|
+|    Method    | Params (M) | FLOPs (G) | Top1 Acc (%) |
+|:-------------|:----------:|:---------:|:------------:|
 | DGMN2-Tiny   |    12.1    |    2.3    |     78.7     |
 | DGMN2-Small  |    21.0    |    4.3    |     81.7     |
 | DGMN2-Medium |    35.8    |    7.1    |     82.5     |
@@ -20,8 +20,8 @@ This repository contains the implementation of [Dynamic Graph Message Passing Ne
 
 #### COCO validation set
 
-| Method           |   Backbone   | Lr schd | box AP | mask AP |
-|------------------|:------------:|:-------:|:------:|:-------:|
+|      Method      |   Backbone   | Lr schd | box AP | mask AP |
+|:-----------------|:-------------|:-------:|:------:|:-------:|
 | RetinaNet        | DGMN2-Tiny   |   1x    |  39.7  |    -    |
 | RetinaNet        | DGMN2-Small  |   1x    |  42.5  |    -    |
 | RetinaNet        | DGMN2-Medium |   1x    |  43.7  |    -    |
@@ -41,24 +41,24 @@ This repository contains the implementation of [Dynamic Graph Message Passing Ne
 
 #### Cityscapes validation set
 
-| Method       |   Backbone   |  Iters  |  mIoU   | mIoU (ms + flip) |
-|--------------|:------------:|:-------:|:-------:|:----------------:|
-| Semantic FPN | DGMN2-Tiny   |   40K   |  78.09  |      79.40       |
-| Semantic FPN | DGMN2-Small  |   40K   |  80.65  |      81.58       |
-| Semantic FPN | DGMN2-Medium |   40K   |  80.60  |      81.79       |
-| Semantic FPN | DGMN2-Large  |   40K   |  81.75  |      82.64       |
-| SETR-Naive   | DGMN2-Tiny   |   40K   |  77.23  |      78.23       |
-| SETR-Naive   | DGMN2-Small  |   40K   |  80.31  |      81.04       |
-| SETR-Naive   | DGMN2-Medium |   40K   |  80.83  |      81.39       |
-| SETR-Naive   | DGMN2-Large  |   40K   |  81.80  |      82.61       |
-| SETR-PUP     | DGMN2-Tiny   |   40K   |  78.25  |      79.26       |
-| SETR-PUP     | DGMN2-Small  |   40K   |  79.78  |      80.73       |
-| SETR-PUP     | DGMN2-Medium |   40K   |  80.96  |      81.80       |
-| SETR-PUP     | DGMN2-Large  |   40K   |  81.58  |      82.27       |
-| SETR-MLA     | DGMN2-Tiny   |   40K   |  78.25  |      79.32       |
-| SETR-MLA     | DGMN2-Small  |   40K   |  80.79  |      81.62       |
-| SETR-MLA     | DGMN2-Medium |   40K   |  81.09  |      82.00       |
-| SETR-MLA     | DGMN2-Large  |   40K   |  81.55  |      81.98       |
+|    Method    |   Backbone   | Iters |  mIoU  | mIoU (ms + flip) |
+|:-------------|:-------------|:-----:|:------:|:----------------:|
+| Semantic FPN | DGMN2-Tiny   |  40K  |  78.09 |      79.40       |
+| Semantic FPN | DGMN2-Small  |  40K  |  80.65 |      81.58       |
+| Semantic FPN | DGMN2-Medium |  40K  |  80.60 |      81.79       |
+| Semantic FPN | DGMN2-Large  |  40K  |  81.75 |      82.64       |
+| SETR-Naive   | DGMN2-Tiny   |  40K  |  77.23 |      78.23       |
+| SETR-Naive   | DGMN2-Small  |  40K  |  80.31 |      81.04       |
+| SETR-Naive   | DGMN2-Medium |  40K  |  80.83 |      81.39       |
+| SETR-Naive   | DGMN2-Large  |  40K  |  81.80 |      82.61       |
+| SETR-PUP     | DGMN2-Tiny   |  40K  |  78.25 |      79.26       |
+| SETR-PUP     | DGMN2-Small  |  40K  |  79.78 |      80.73       |
+| SETR-PUP     | DGMN2-Medium |  40K  |  80.96 |      81.80       |
+| SETR-PUP     | DGMN2-Large  |  40K  |  81.58 |      82.27       |
+| SETR-MLA     | DGMN2-Tiny   |  40K  |  78.25 |      79.32       |
+| SETR-MLA     | DGMN2-Small  |  40K  |  80.79 |      81.62       |
+| SETR-MLA     | DGMN2-Medium |  40K  |  81.09 |      82.00       |
+| SETR-MLA     | DGMN2-Large  |  40K  |  81.55 |      81.98       |
 
 
 ## Getting Started

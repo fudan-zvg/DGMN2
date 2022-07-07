@@ -7,8 +7,8 @@ This folder contains the implementation of DGMN2 for image classification.
 
 #### ImageNet-1K
 
-| Method       | Params (M) | FLOPs (G) | Top1 Acc (%) | Download |
-|--------------|:----------:|:---------:|:------------:|:--------:|
+|    Method    | Params (M) | FLOPs (G) | Top1 Acc (%) | Download |
+|:-------------|:----------:|:---------:|:------------:|:--------:|
 | DGMN2-Tiny   |    12.1    |    2.3    |     78.7     | [model](https://drive.google.com/file/d/1H21VwFOzkv47GIXnV2a47F2K98wn3s0a/view?usp=sharing) |
 | DGMN2-Small  |    21.0    |    4.3    |     81.7     | [model](https://drive.google.com/file/d/1bOhpFnZLO8Va4LJccrlnazD1aL61wm5b/view?usp=sharing) |
 | DGMN2-Medium |    35.8    |    7.1    |     82.5     | [model](https://drive.google.com/file/d/13iDrUlynBs83pdhUoFmwQoZbAf4oDvTm/view?usp=sharing) |
