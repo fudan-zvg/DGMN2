@@ -73,8 +73,12 @@ class DGMN2(nn.Module):
         # patch_embed
         self.patch_embed1 = PatchEmbed_stage1(in_chans=in_chans, embed_dim=embed_dims[0], mid_embed_dim=embed_dims[0] // 2, norm_cfg=norm_cfg)
         self.patch_embed2 = PatchEmbed(in_chans=embed_dims[0], embed_dim=embed_dims[1], norm_cfg=norm_cfg)
-        self.patch_embed3 = PatchEmbed(in_chans=embed_dims[1], embed_dim=embed_dims[2], stride=1, norm_cfg=norm_cfg)
-        self.patch_embed4 = PatchEmbed(in_chans=embed_dims[2], embed_dim=embed_dims[3], stride=1, norm_cfg=norm_cfg)
+        if output == 'decode_head' or output == 'decode_head_multi':
+            self.patch_embed3 = PatchEmbed(in_chans=embed_dims[1], embed_dim=embed_dims[2], stride=1, norm_cfg=norm_cfg)
+            self.patch_embed4 = PatchEmbed(in_chans=embed_dims[2], embed_dim=embed_dims[3], stride=1, norm_cfg=norm_cfg)
+        elif output == 'neck':
+            self.patch_embed3 = PatchEmbed(in_chans=embed_dims[1], embed_dim=embed_dims[2], stride=2, norm_cfg=norm_cfg)
+            self.patch_embed4 = PatchEmbed(in_chans=embed_dims[2], embed_dim=embed_dims[3], stride=2, norm_cfg=norm_cfg)
 
         # transformer encoder
         dpr = [x.item() for x in torch.linspace(0, drop_path_rate, sum(depths))]  # stochastic depth decay rule
@@ -154,7 +158,7 @@ class DGMN2(nn.Module):
         return {"cls_token"}
 
     def forward_features(self, x):
-        if self.output == "neck":
+        if self.output == "neck" or self.output == 'decode_head_multi':
             outs = []
 
         # stage 1
@@ -164,7 +168,7 @@ class DGMN2(nn.Module):
         for blk in self.block1:
             x = blk(x, H, W)
         x = x.transpose(1, 2).reshape(B, C, H, W)
-        if self.output == "neck":
+        if self.output == "neck" or self.output == 'decode_head_multi':
             outs.append(x)
 
         # stage 2
@@ -174,7 +178,7 @@ class DGMN2(nn.Module):
         for blk in self.block2:
             x = blk(x, H, W)
         x = x.transpose(1, 2).reshape(B, C, H, W)
-        if self.output == "neck":
+        if self.output == "neck" or self.output == 'decode_head_multi':
             outs.append(x)
 
         # stage 3
@@ -184,8 +188,7 @@ class DGMN2(nn.Module):
         for blk in self.block3:
             x = blk(x, H, W)
         x = x.transpose(1, 2).reshape(B, C, H, W)
-        x_stage3 = x
-        if self.output == "neck":
+        if self.output == "neck" or self.output == 'decode_head_multi':
             outs.append(x)
 
         # stage 4
@@ -195,12 +198,12 @@ class DGMN2(nn.Module):
         for blk in self.block4:
             x = blk(x, H, W)
         x = x.transpose(1, 2).reshape(B, C, H, W)
-        if self.output == "neck":
+        if self.output == "neck" or self.output == 'decode_head_multi':
             outs.append(x)
 
         if self.output == "decode_head":
-            return [x_stage3, x]
-        elif self.output == "neck":
+            return [x]
+        elif self.output == "neck" or self.output == 'decode_head_multi':
             return outs
 
     def forward(self, x):

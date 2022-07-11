@@ -12,7 +12,7 @@ model = dict(
     backbone=dict(
         type='dgmn2_large',
         norm_cfg=norm_cfg,
-        output='neck',
+        output='decode_head_multi',
     ),
     decode_head=dict(
         type='VIT_MLAHead',
