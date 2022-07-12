@@ -24,8 +24,6 @@ model = dict(
         norm_cfg=norm_cfg,
         num_conv=4,
         dropout_ratio=0,
-        upsampling_method='bilinear',
-        num_upsampe_layer=4,
         align_corners=True,
         loss_decode=dict(
             type='CrossEntropyLoss', use_sigmoid=False, loss_weight=1.0)),

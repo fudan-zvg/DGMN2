@@ -16,7 +16,6 @@ model = dict(
         num_classes=19,
         norm_cfg=norm_cfg,
         num_conv=2,
-        upsampling_method='bilinear',
         align_corners=True,
         loss_decode=dict(
             type='CrossEntropyLoss', use_sigmoid=False, loss_weight=1.0)),
