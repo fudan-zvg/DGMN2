@@ -30,10 +30,10 @@ This repository contains the implementation of [Dynamic Graph Message Passing Ne
 | Mask R-CNN       | DGMN2-Small  |   1x    |  43.4  |  39.7   | [model](https://drive.google.com/file/d/1g1lp7kUIM5gvxROfTAvI2EVjpPL-HW6r/view?usp=sharing) |
 | Mask R-CNN       | DGMN2-Medium |   1x    |  44.4  |  40.2   | [model](https://drive.google.com/file/d/1MO0BLtIrRohAW7BPEnr5G63mCBDA4Yey/view?usp=sharing) |
 | Mask R-CNN       | DGMN2-Large  |   1x    |  46.2  |  41.6   | [model](https://drive.google.com/file/d/1DFkSQmfHI9z6IKag21BzRb7LhWvHotXm/view?usp=sharing) |
-| Deformable DETR  | DGMN2-Tiny   |   50e   |  44.4  |    -    |  |
-| Deformable DETR  | DGMN2-Small  |   50e   |  47.3  |    -    |  |
-| Deformable DETR  | DGMN2-Medium |   50e   |  48.4  |    -    |  |
-| Deformable DETR+ | DGMN2-Small  |   50e   |  47.3  |    -    |  |
+| Deformable DETR  | DGMN2-Tiny   |   50e   |  44.4  |    -    | [model](https://drive.google.com/file/d/1FZ9HIzQ9ty3TUeW30TCLxI9zKopVcHHG/view?usp=sharing) |
+| Deformable DETR  | DGMN2-Small  |   50e   |  47.3  |    -    | [model](https://drive.google.com/file/d/1cy9-HftCSkX5gSMH22ThjJNn8Br8EPke/view?usp=sharing) |
+| Deformable DETR  | DGMN2-Medium |   50e   |  48.4  |    -    | [model](https://drive.google.com/file/d/1bXNPKpWSAu_i0vtQCcBcoP7yUJQUIHN3/view?usp=sharing) |
+| Deformable DETR+ | DGMN2-Small  |   50e   |  48.5  |    -    | [model](https://drive.google.com/file/d/1svE9XGe6bwvGtiauQenYIjpnaOkQ0x9e/view?usp=sharing) |
 | Sparse R-CNN     | DGMN2-Small  |   3x    |  48.2  |    -    |  |
 
 
@@ -99,3 +99,4 @@ Thanks to previous open-sourced repo:
 [PyTorch Image Models](https://github.com/rwightman/pytorch-image-models)  
 [MMDetection](https://github.com/open-mmlab/mmdetection)  
 [MMSegmentation](https://github.com/open-mmlab/mmsegmentation)  
+[Deformable DETR](https://github.com/fundamentalvision/Deformable-DETR)  
