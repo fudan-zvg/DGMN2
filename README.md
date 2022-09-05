@@ -34,7 +34,7 @@ This repository contains the implementation of [Dynamic Graph Message Passing Ne
 | Deformable DETR  | DGMN2-Small  |   50e   |  47.3  |    -    | [model](https://drive.google.com/file/d/1cy9-HftCSkX5gSMH22ThjJNn8Br8EPke/view?usp=sharing) |
 | Deformable DETR  | DGMN2-Medium |   50e   |  48.4  |    -    | [model](https://drive.google.com/file/d/1bXNPKpWSAu_i0vtQCcBcoP7yUJQUIHN3/view?usp=sharing) |
 | Deformable DETR+ | DGMN2-Small  |   50e   |  48.5  |    -    | [model](https://drive.google.com/file/d/1svE9XGe6bwvGtiauQenYIjpnaOkQ0x9e/view?usp=sharing) |
-| Sparse R-CNN     | DGMN2-Small  |   3x    |  48.2  |    -    |  |
+| Sparse R-CNN     | DGMN2-Small  |   3x    |  48.2  |    -    | [model](https://drive.google.com/file/d/1EvzDIdc_zNPhUlDweP_g9-Iqf2_XXMr6/view?usp=sharing) |
 
 
 ### Semantic Segmentation
@@ -66,7 +66,8 @@ This repository contains the implementation of [Dynamic Graph Message Passing Ne
  - For image classification, please see [classification](classification/).
  - For object detection, please see [detection](detection/).
  - For semantic segmentation, please see [segmentation](segmentation/).
-
+ - For Deformable DETR, please see [deformable_detr](deformable_detr/).
+ - For Sparse R-CNN, please see [sparsercnn](sparsercnn/).
 
 
 ## License
@@ -100,3 +101,5 @@ Thanks to previous open-sourced repo:
 [MMDetection](https://github.com/open-mmlab/mmdetection)  
 [MMSegmentation](https://github.com/open-mmlab/mmsegmentation)  
 [Deformable DETR](https://github.com/fundamentalvision/Deformable-DETR)  
+[Sparse R-CNN](https://github.com/PeizeSun/SparseR-CNN)  
+[Detectron2](https://github.com/facebookresearch/detectron2)  
