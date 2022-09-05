@@ -134,28 +134,17 @@ class Joiner(nn.Sequential):
 def build_backbone(args):
     if args.backbone == "dgmn2_tiny":
         backbone = dgmn2_tiny()
-        position_embedding = build_position_encoding(args)
-        model = Joiner(backbone, position_embedding)
-        return model
     elif args.backbone == "dgmn2_small":
         backbone = dgmn2_small()
-        position_embedding = build_position_encoding(args)
-        model = Joiner(backbone, position_embedding)
-        return model
     elif args.backbone == "dgmn2_medium":
         backbone = dgmn2_medium()
-        position_embedding = build_position_encoding(args)
-        model = Joiner(backbone, position_embedding)
-        return model
     elif args.backbone == "dgmn2_large":
         backbone = dgmn2_large()
-        position_embedding = build_position_encoding(args)
-        model = Joiner(backbone, position_embedding)
-        return model
     else:
-        position_embedding = build_position_encoding(args)
         train_backbone = args.lr_backbone > 0
         return_interm_layers = args.masks or (args.num_feature_levels > 1)
         backbone = Backbone(args.backbone, train_backbone, return_interm_layers, args.dilation)
-        model = Joiner(backbone, position_embedding)
-        return model
+    
+    position_embedding = build_position_encoding(args)
+    model = Joiner(backbone, position_embedding)
+    return model

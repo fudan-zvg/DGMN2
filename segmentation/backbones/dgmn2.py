@@ -1,9 +1,8 @@
-import math
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from functools import partial
-from timm.models.layers import to_2tuple, trunc_normal_
+from timm.models.layers import trunc_normal_
 from mmseg.models.builder import BACKBONES
 from mmseg.utils import get_root_logger
 from mmcv.runner import load_checkpoint
@@ -73,10 +72,10 @@ class DGMN2(nn.Module):
         # patch_embed
         self.patch_embed1 = PatchEmbed_stage1(in_chans=in_chans, embed_dim=embed_dims[0], mid_embed_dim=embed_dims[0] // 2, norm_cfg=norm_cfg)
         self.patch_embed2 = PatchEmbed(in_chans=embed_dims[0], embed_dim=embed_dims[1], norm_cfg=norm_cfg)
-        if output == 'decode_head' or output == 'decode_head_multi':
+        if output in ["decode_head", "decode_head_multi"]:
             self.patch_embed3 = PatchEmbed(in_chans=embed_dims[1], embed_dim=embed_dims[2], stride=1, norm_cfg=norm_cfg)
             self.patch_embed4 = PatchEmbed(in_chans=embed_dims[2], embed_dim=embed_dims[3], stride=1, norm_cfg=norm_cfg)
-        elif output == 'neck':
+        elif output == "neck":
             self.patch_embed3 = PatchEmbed(in_chans=embed_dims[1], embed_dim=embed_dims[2], stride=2, norm_cfg=norm_cfg)
             self.patch_embed4 = PatchEmbed(in_chans=embed_dims[2], embed_dim=embed_dims[3], stride=2, norm_cfg=norm_cfg)
 
@@ -158,7 +157,7 @@ class DGMN2(nn.Module):
         return {"cls_token"}
 
     def forward_features(self, x):
-        if self.output == "neck" or self.output == 'decode_head_multi':
+        if self.output in ["neck", "decode_head_multi"]:
             outs = []
 
         # stage 1
@@ -168,7 +167,7 @@ class DGMN2(nn.Module):
         for blk in self.block1:
             x = blk(x, H, W)
         x = x.transpose(1, 2).reshape(B, C, H, W)
-        if self.output == "neck" or self.output == 'decode_head_multi':
+        if self.output in ["neck", "decode_head_multi"]:
             outs.append(x)
 
         # stage 2
@@ -178,7 +177,7 @@ class DGMN2(nn.Module):
         for blk in self.block2:
             x = blk(x, H, W)
         x = x.transpose(1, 2).reshape(B, C, H, W)
-        if self.output == "neck" or self.output == 'decode_head_multi':
+        if self.output in ["neck", "decode_head_multi"]:
             outs.append(x)
 
         # stage 3
@@ -188,7 +187,7 @@ class DGMN2(nn.Module):
         for blk in self.block3:
             x = blk(x, H, W)
         x = x.transpose(1, 2).reshape(B, C, H, W)
-        if self.output == "neck" or self.output == 'decode_head_multi':
+        if self.output in ["neck", "decode_head_multi"]:
             outs.append(x)
 
         # stage 4
@@ -198,12 +197,12 @@ class DGMN2(nn.Module):
         for blk in self.block4:
             x = blk(x, H, W)
         x = x.transpose(1, 2).reshape(B, C, H, W)
-        if self.output == "neck" or self.output == 'decode_head_multi':
+        if self.output in ["neck", "decode_head_multi"]:
             outs.append(x)
 
         if self.output == "decode_head":
             return [x]
-        elif self.output == "neck" or self.output == 'decode_head_multi':
+        elif self.output in ["neck", "decode_head_multi"]:
             return outs
 
     def forward(self, x):

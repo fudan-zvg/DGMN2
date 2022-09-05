@@ -1,9 +1,8 @@
-import math
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from functools import partial
-from timm.models.layers import to_2tuple, trunc_normal_
+from timm.models.layers import trunc_normal_
 from mmdet.models.builder import BACKBONES
 from mmdet.utils import get_root_logger
 from mmcv.runner import load_checkpoint
@@ -59,14 +58,12 @@ class PatchEmbed(nn.Module):
 
 class DGMN2(nn.Module):
     def __init__(
-        self, output="fpn", in_chans=3, num_classes=1000, embed_dims=(64, 128, 256, 512), num_heads=(1, 2, 4, 8),
-        mlp_ratios=(4, 4, 4, 4), qkv_bias=False, qk_scale=None, drop_rate=0., attn_drop_rate=0., drop_path_rate=0.,
-        norm_layer=nn.LayerNorm, depths=(3, 4, 6, 3), pretrained=None
+        self, in_chans=3, embed_dims=(64, 128, 256, 512), num_heads=(1, 2, 4, 8), mlp_ratios=(4, 4, 4, 4), qkv_bias=False,
+        qk_scale=None, drop_rate=0., attn_drop_rate=0., drop_path_rate=0., norm_layer=nn.LayerNorm, depths=(3, 4, 6, 3),
+        pretrained=None
     ):
         super().__init__()
-        self.num_classes = num_classes
         self.depths = depths
-        self.output = output
 
         # patch_embed
         self.patch_embed1 = PatchEmbed_stage1(in_chans=in_chans, embed_dim=embed_dims[0], mid_embed_dim=embed_dims[0] // 2)
@@ -161,8 +158,7 @@ class DGMN2(nn.Module):
         for blk in self.block1:
             x = blk(x, H, W)
         x = x.transpose(1, 2).reshape(B, C, H, W)
-        if self.output == "fpn":
-            outs.append(x)
+        outs.append(x)
 
         # stage 2
         x = self.patch_embed2(x)
@@ -171,8 +167,7 @@ class DGMN2(nn.Module):
         for blk in self.block2:
             x = blk(x, H, W)
         x = x.transpose(1, 2).reshape(B, C, H, W)
-        if self.output in ["fpn", "deformable_detr"]:
-            outs.append(x)
+        outs.append(x)
 
         # stage 3
         x = self.patch_embed3(x)
@@ -181,8 +176,7 @@ class DGMN2(nn.Module):
         for blk in self.block3:
             x = blk(x, H, W)
         x = x.transpose(1, 2).reshape(B, C, H, W)
-        if self.output in ["fpn", "deformable_detr"]:
-            outs.append(x)
+        outs.append(x)
 
         # stage 4
         x = self.patch_embed4(x)
@@ -191,8 +185,7 @@ class DGMN2(nn.Module):
         for blk in self.block4:
             x = blk(x, H, W)
         x = x.transpose(1, 2).reshape(B, C, H, W)
-        if self.output in ["fpn", "deformable_detr"]:
-            outs.append(x)
+        outs.append(x)
 
         return outs
 
@@ -204,35 +197,35 @@ class DGMN2(nn.Module):
 
 @BACKBONES.register_module()
 class dgmn2_tiny(DGMN2):
-    def __init__(self, output="fpn", pretrained=None):
+    def __init__(self, pretrained=None):
         super().__init__(
-            output=output, embed_dims=(64, 128, 320, 512), num_heads=(1, 2, 5, 8), mlp_ratios=(8, 8, 4, 4),
-            qkv_bias=True, norm_layer=partial(nn.LayerNorm, eps=1e-6), depths=(2, 2, 2, 2), pretrained=pretrained
+            embed_dims=(64, 128, 320, 512), num_heads=(1, 2, 5, 8), mlp_ratios=(8, 8, 4, 4), qkv_bias=True,
+            norm_layer=partial(nn.LayerNorm, eps=1e-6), depths=(2, 2, 2, 2), pretrained=pretrained
         )
 
 
 @BACKBONES.register_module()
 class dgmn2_small(DGMN2):
-    def __init__(self, output="fpn", pretrained=None):
+    def __init__(self, pretrained=None):
         super().__init__(
-            output=output, embed_dims=(64, 128, 320, 512), num_heads=(1, 2, 5, 8), mlp_ratios=(8, 8, 4, 4),
-            qkv_bias=True, norm_layer=partial(nn.LayerNorm, eps=1e-6), depths=(3, 4, 6, 3), pretrained=pretrained
+            embed_dims=(64, 128, 320, 512), num_heads=(1, 2, 5, 8), mlp_ratios=(8, 8, 4, 4), qkv_bias=True,
+            norm_layer=partial(nn.LayerNorm, eps=1e-6), depths=(3, 4, 6, 3), pretrained=pretrained
         )
 
 
 @BACKBONES.register_module()
 class dgmn2_medium(DGMN2):
-    def __init__(self, output="fpn", pretrained=None):
+    def __init__(self, pretrained=None):
         super().__init__(
-            output=output, embed_dims=(64, 128, 320, 512), num_heads=(1, 2, 5, 8), mlp_ratios=(8, 8, 4, 4),
-            qkv_bias=True, norm_layer=partial(nn.LayerNorm, eps=1e-6), depths=(3, 4, 18, 3), pretrained=pretrained
+            embed_dims=(64, 128, 320, 512), num_heads=(1, 2, 5, 8), mlp_ratios=(8, 8, 4, 4), qkv_bias=True,
+            norm_layer=partial(nn.LayerNorm, eps=1e-6), depths=(3, 4, 18, 3), pretrained=pretrained
         )
 
 
 @BACKBONES.register_module()
 class dgmn2_large(DGMN2):
-    def __init__(self, output="fpn", pretrained=None):
+    def __init__(self, pretrained=None):
         super().__init__(
-            output=output, embed_dims=(64, 128, 320, 512), num_heads=(1, 2, 5, 8), mlp_ratios=(8, 8, 4, 4),
-            qkv_bias=True, norm_layer=partial(nn.LayerNorm, eps=1e-6), depths=(3, 8, 27, 3), pretrained=pretrained
+            embed_dims=(64, 128, 320, 512), num_heads=(1, 2, 5, 8), mlp_ratios=(8, 8, 4, 4), qkv_bias=True,
+            norm_layer=partial(nn.LayerNorm, eps=1e-6), depths=(3, 8, 27, 3), pretrained=pretrained
         )
