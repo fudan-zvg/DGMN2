@@ -86,7 +86,7 @@ This repository is released under the Apache 2.0 license as found in the [LICENS
 ```
 ```
 @article{zhang2022dynamic,
-  title={Dynamic Graph Message Passing Networks},
+  title={Dynamic Graph Message Passing Networks for Visual Recognition},
   author={Zhang, Li and Chen, Mohan and Arnab, Anurag and Xue, Xiangyang and Torr, Philip H.S.},
   journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
   year={2022}
