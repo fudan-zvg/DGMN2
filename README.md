@@ -1,6 +1,6 @@
 # DGMN2
 
-This repository contains the implementation of [Dynamic Graph Message Passing Networks](https://arxiv.org/abs/1908.06955).
+This repository contains the implementation of [Dynamic Graph Message Passing Networks for Visual Recognition](https://arxiv.org/abs/2209.09760).
 
 
 ## Main results
